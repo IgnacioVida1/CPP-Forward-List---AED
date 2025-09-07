@@ -72,13 +72,13 @@ class forward_list {
     forward_list(Node<T>* n) : head(n) {}
 
     // Metodos
-    Node<T>* front() const { return head; }
-    Node<T>* back() const {
-        auto* newNode = head;
-        while (newNode->next != nullptr) {
-            newNode = newNode->next;
+    T front() const { return head->data; }
+    T back() const {
+        auto* temp = head;
+        while (temp->next != nullptr) {
+            temp = temp->next;
         }
-        return newNode;
+        return temp->data;
     }
     void push_front(const T& n) {
         auto* newNode = new Node<T>(n);
